@@ -1,0 +1,31 @@
+﻿@model Demo.Web.Models.AboutViewModel
+@using Demo.Web.Models
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="~/main.css" />
+</head>
+<body>
+    @* <h1>About {{companyName}}</h1> *@
+    <h1>About @Model.CompanyName</h1>
+
+    <ul>
+        @foreach (Staff staff in Model.Staff)
+        {
+            <li>
+                @staff.Name
+
+                (@staff.Role)
+                @if (staff.Role == Role.Instructor)
+                {
+                    <span class="instructor">*</span>
+                }
+            </li>
+        }
+    </ul>
+</body>
+</html>
